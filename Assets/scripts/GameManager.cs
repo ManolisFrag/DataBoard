@@ -2,11 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 
+
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
     public GameObject TilePrefab;
     public GameObject UserPlayerPrefab;
-    
+    public GameObject mainObject;
+    public GameObject mainObject2;
 
     public int mapSize = 10;
 
@@ -23,13 +25,16 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 
         generateMap();
-        generatePlayers();
-	}
+        generatePlayers();        
+            mainObject.SetActive(false);
+            mainObject2.SetActive(false);
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {
         players[currentPlayerIndex].TurnUpdate();
-        
+        //Attack();
     }
 
     void OnGUI()
@@ -46,13 +51,32 @@ public class GameManager : MonoBehaviour {
         {
             currentPlayerIndex = 0;
         }
+       
     }
 
     public void moveCurrentPlayer (Tile destTile)
     {
         players[currentPlayerIndex].moveDestination = destTile.transform.position + 1.5f * Vector3.up;
 
+        if (destTile.gridPosition == new Vector2(3, 0))   // THIS IS WHERE i CAN SHOW THE TEXT
+        {
+            Debug.Log("DONE");
+            mainObject.SetActive(true);
+
+        }
+        
+            if (destTile.gridPosition == new Vector2(4, 0))
+            {
+                Debug.Log("NotDone");
+                mainObject.SetActive(false);
+                mainObject2.SetActive(true);
+            }
+        
+
+        
     }
+
+    
 
     void generateMap ()
     {
@@ -75,15 +99,21 @@ public class GameManager : MonoBehaviour {
 
         UserPlayer player;
         player = ((GameObject)Instantiate(UserPlayerPrefab, new Vector3(0 - Mathf.Floor(mapSize / 2), 1.5f, -0 + Mathf.Floor(mapSize / 2)), Quaternion.Euler(new Vector3()))).GetComponent<UserPlayer>();
+        player.gridPosition = new Vector2(0,0);
         players.Add(player);        
 
         player = ((GameObject)Instantiate(UserPlayerPrefab, new Vector3((mapSize-1) - Mathf.Floor(mapSize / 2), 1.5f, -(mapSize - 1) + Mathf.Floor(mapSize / 2)), Quaternion.Euler(new Vector3()))).GetComponent<UserPlayer>();
+        player.gridPosition = new Vector2(mapSize - 1, -(mapSize - 1));
         players.Add(player);
 
         player = ((GameObject)Instantiate(UserPlayerPrefab, new Vector3(4 - Mathf.Floor(mapSize / 2), 1.5f, -4 + Mathf.Floor(mapSize / 2)), Quaternion.Euler(new Vector3()))).GetComponent<UserPlayer>();
+        player.gridPosition = new Vector2(4, -4);
         players.Add(player);
 
         player = ((GameObject)Instantiate(UserPlayerPrefab, new Vector3(5 - Mathf.Floor(mapSize / 2), 1.5f, -6 + Mathf.Floor(mapSize / 2)), Quaternion.Euler(new Vector3()))).GetComponent<UserPlayer>();
+        player.gridPosition = new Vector2(5, -6);
         players.Add(player);
     }
+
+    
 }

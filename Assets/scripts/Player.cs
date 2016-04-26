@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Player : MonoBehaviour {
+    public Vector2 gridPosition = Vector2.zero;
 
     public Vector3 moveDestination;
 	// Use this for initialization
