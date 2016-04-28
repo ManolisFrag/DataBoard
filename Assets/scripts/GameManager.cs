@@ -9,6 +9,11 @@ public class GameManager : MonoBehaviour {
     public GameObject UserPlayerPrefab;
     public GameObject mainObject;
     public GameObject mainObject2;
+    public GameObject mainObject3;
+    public GameObject mainObject4;
+    public GameObject mainObject5;
+    public GameObject mainObject6;
+    public GameObject mainObject7;
 
     public int mapSize = 10;
 
@@ -28,7 +33,12 @@ public class GameManager : MonoBehaviour {
         generatePlayers();        
             mainObject.SetActive(false);
             mainObject2.SetActive(false);
-        
+            mainObject3.SetActive(false);
+        mainObject4.SetActive(false);
+        mainObject5.SetActive(false);
+        mainObject6.SetActive(false);
+        mainObject7.SetActive(false);
+
     }
 	
 	// Update is called once per frame
@@ -58,21 +68,96 @@ public class GameManager : MonoBehaviour {
     {
         players[currentPlayerIndex].moveDestination = destTile.transform.position + 1.5f * Vector3.up;
 
-        if (destTile.gridPosition == new Vector2(3, 0))   // THIS IS WHERE i CAN SHOW THE TEXT
+        if (destTile.gridPosition == new Vector2(5, 0) || destTile.gridPosition == new Vector2(6, 0) || destTile.gridPosition == new Vector2(0, 1) || destTile.gridPosition == new Vector2(0, 4) || destTile.gridPosition == new Vector2(7, 1) || destTile.gridPosition == new Vector2(6,7) || destTile.gridPosition == new Vector2(5, 7) || destTile.gridPosition == new Vector2(7, 6))   // THIS IS WHERE i CAN SHOW THE TEXT
         {
-            Debug.Log("DONE");
+            //Debug.Log("DONE");
             mainObject.SetActive(true);
-
+            mainObject2.SetActive(false);
+            mainObject3.SetActive(false);
+            mainObject4.SetActive(false);
+            mainObject5.SetActive(false);
+            mainObject6.SetActive(false);
+            mainObject7.SetActive(false);
         }
-        
-            if (destTile.gridPosition == new Vector2(4, 0))
+        else
+        {
+            if (destTile.gridPosition == new Vector2(0, 5) || destTile.gridPosition == new Vector2(7, 5) || destTile.gridPosition == new Vector2(0, 6) || destTile.gridPosition == new Vector2(3,7) || destTile.gridPosition == new Vector2(4, 7))
             {
-                Debug.Log("NotDone");
                 mainObject.SetActive(false);
                 mainObject2.SetActive(true);
+                mainObject3.SetActive(false);
+                mainObject4.SetActive(false);
+                mainObject5.SetActive(false);
+                mainObject6.SetActive(false);
+                mainObject7.SetActive(false);
             }
-        
+            else
+            {
+                if (destTile.gridPosition == new Vector2(4, 0) || destTile.gridPosition == new Vector2(0, 2) || destTile.gridPosition == new Vector2(7, 2) || destTile.gridPosition == new Vector2(2, 7))
+                {
+                    mainObject.SetActive(false);
+                    mainObject2.SetActive(false);
+                    mainObject3.SetActive(true);
+                    mainObject4.SetActive(false);
+                    mainObject5.SetActive(false);
+                    mainObject6.SetActive(false);
+                    mainObject7.SetActive(false);
+                }
+                else
+                {
+                    if (destTile.gridPosition == new Vector2(7, 3) || destTile.gridPosition == new Vector2(1, 7))
+                    {
+                        mainObject.SetActive(false);
+                        mainObject2.SetActive(false);
+                        mainObject3.SetActive(false);
+                        mainObject4.SetActive(true);
+                        mainObject5.SetActive(false);
+                        mainObject6.SetActive(false);
+                        mainObject7.SetActive(false);
+                    }
+                    else
+                    {
+                        if (destTile.gridPosition == new Vector2(3, 0))
+                        {
+                            mainObject.SetActive(false);
+                            mainObject2.SetActive(false);
+                            mainObject3.SetActive(false);
+                            mainObject4.SetActive(false);
+                            mainObject5.SetActive(true);
+                            mainObject6.SetActive(false);
+                            mainObject7.SetActive(false);
+                        }
+                        else
+                        {
+                            if (destTile.gridPosition == new Vector2(1, 0))
+                            {
+                                mainObject.SetActive(false);
+                                mainObject2.SetActive(false);
+                                mainObject3.SetActive(false);
+                                mainObject4.SetActive(false);
+                                mainObject5.SetActive(false);
+                                mainObject6.SetActive(true);
+                                mainObject7.SetActive(false);
+                            }
+                            else
+                            {
+                                if (destTile.gridPosition == new Vector2(2, 0))
+                                {
+                                    mainObject.SetActive(false);
+                                    mainObject2.SetActive(false);
+                                    mainObject3.SetActive(false);
+                                    mainObject4.SetActive(false);
+                                    mainObject5.SetActive(false);
+                                    mainObject6.SetActive(false);
+                                    mainObject7.SetActive(true);
+                                }
+                            }
+                        }
+                    }
+                }
 
+            }
+        }
         
     }
 
