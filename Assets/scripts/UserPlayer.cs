@@ -33,7 +33,7 @@ public class UserPlayer : Player
             if (Vector3.Distance(moveDestination, transform.position) <= 0.1f)
             {
                 transform.position = moveDestination;
-                // Debug.Log(moveDestination);
+                //Debug.Log(moveDestination);
                 
             }
         }

@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour {
     public GameObject mainObject5;
     public GameObject mainObject6;
     public GameObject mainObject7;
+    public GameObject mainObject8;
+    public GameObject mainObject9;
+    public GameObject mainObject10;
 
     public int mapSize = 10;
 
@@ -38,6 +41,9 @@ public class GameManager : MonoBehaviour {
         mainObject5.SetActive(false);
         mainObject6.SetActive(false);
         mainObject7.SetActive(false);
+        mainObject8.SetActive(false);
+        mainObject9.SetActive(false);
+        mainObject10.SetActive(false);
 
     }
 	
@@ -67,8 +73,9 @@ public class GameManager : MonoBehaviour {
     public void moveCurrentPlayer (Tile destTile)
     {
         players[currentPlayerIndex].moveDestination = destTile.transform.position + 1.5f * Vector3.up;
+        //Debug.Log(destTile.gridPosition);
 
-        if (destTile.gridPosition == new Vector2(5, 0) || destTile.gridPosition == new Vector2(6, 0) || destTile.gridPosition == new Vector2(0, 1) || destTile.gridPosition == new Vector2(0, 4) || destTile.gridPosition == new Vector2(7, 1) || destTile.gridPosition == new Vector2(6,7) || destTile.gridPosition == new Vector2(5, 7) || destTile.gridPosition == new Vector2(7, 6))   // THIS IS WHERE i CAN SHOW THE TEXT
+        if (destTile.gridPosition == new Vector2(1, 0)) //Building   THIS IS WHERE i CAN SHOW THE TEXT
         {
             //Debug.Log("DONE");
             mainObject.SetActive(true);
@@ -78,10 +85,14 @@ public class GameManager : MonoBehaviour {
             mainObject5.SetActive(false);
             mainObject6.SetActive(false);
             mainObject7.SetActive(false);
+            mainObject8.SetActive(false);
+            mainObject9.SetActive(false);
+            mainObject10.SetActive(false);
+
         }
         else
         {
-            if (destTile.gridPosition == new Vector2(0, 5) || destTile.gridPosition == new Vector2(7, 5) || destTile.gridPosition == new Vector2(0, 6) || destTile.gridPosition == new Vector2(3,7) || destTile.gridPosition == new Vector2(4, 7))
+            if (destTile.gridPosition == new Vector2(2, 0)) //Personnel
             {
                 mainObject.SetActive(false);
                 mainObject2.SetActive(true);
@@ -90,10 +101,14 @@ public class GameManager : MonoBehaviour {
                 mainObject5.SetActive(false);
                 mainObject6.SetActive(false);
                 mainObject7.SetActive(false);
+                mainObject8.SetActive(false);
+                mainObject9.SetActive(false);
+                mainObject10.SetActive(false);
+
             }
             else
             {
-                if (destTile.gridPosition == new Vector2(4, 0) || destTile.gridPosition == new Vector2(0, 2) || destTile.gridPosition == new Vector2(7, 2) || destTile.gridPosition == new Vector2(2, 7))
+                if (destTile.gridPosition == new Vector2(4, 1)) //Microphones
                 {
                     mainObject.SetActive(false);
                     mainObject2.SetActive(false);
@@ -102,10 +117,14 @@ public class GameManager : MonoBehaviour {
                     mainObject5.SetActive(false);
                     mainObject6.SetActive(false);
                     mainObject7.SetActive(false);
+                    mainObject8.SetActive(false);
+                    mainObject9.SetActive(false);
+                    mainObject10.SetActive(false);
+
                 }
                 else
                 {
-                    if (destTile.gridPosition == new Vector2(7, 3) || destTile.gridPosition == new Vector2(1, 7))
+                    if (destTile.gridPosition == new Vector2(4, 2)) //Cameras
                     {
                         mainObject.SetActive(false);
                         mainObject2.SetActive(false);
@@ -114,10 +133,14 @@ public class GameManager : MonoBehaviour {
                         mainObject5.SetActive(false);
                         mainObject6.SetActive(false);
                         mainObject7.SetActive(false);
+                        mainObject8.SetActive(false);
+                        mainObject9.SetActive(false);
+                        mainObject10.SetActive(false);
+
                     }
                     else
                     {
-                        if (destTile.gridPosition == new Vector2(3, 0))
+                        if (destTile.gridPosition == new Vector2(4, 3)) //Cars
                         {
                             mainObject.SetActive(false);
                             mainObject2.SetActive(false);
@@ -126,10 +149,14 @@ public class GameManager : MonoBehaviour {
                             mainObject5.SetActive(true);
                             mainObject6.SetActive(false);
                             mainObject7.SetActive(false);
+                            mainObject8.SetActive(false);
+                            mainObject9.SetActive(false);
+                            mainObject10.SetActive(false);
+
                         }
                         else
                         {
-                            if (destTile.gridPosition == new Vector2(1, 0))
+                            if (destTile.gridPosition == new Vector2(2,4)) //Genre
                             {
                                 mainObject.SetActive(false);
                                 mainObject2.SetActive(false);
@@ -138,10 +165,14 @@ public class GameManager : MonoBehaviour {
                                 mainObject5.SetActive(false);
                                 mainObject6.SetActive(true);
                                 mainObject7.SetActive(false);
+                                mainObject8.SetActive(false);
+                                mainObject9.SetActive(false);
+                                mainObject10.SetActive(false);
+
                             }
                             else
                             {
-                                if (destTile.gridPosition == new Vector2(2, 0))
+                                if (destTile.gridPosition == new Vector2(1, 0)) //Logo
                                 {
                                     mainObject.SetActive(false);
                                     mainObject2.SetActive(false);
@@ -150,6 +181,58 @@ public class GameManager : MonoBehaviour {
                                     mainObject5.SetActive(false);
                                     mainObject6.SetActive(false);
                                     mainObject7.SetActive(true);
+                                    mainObject8.SetActive(false);
+                                    mainObject9.SetActive(false);
+                                    mainObject10.SetActive(false);
+
+                                }
+                                else
+                                {
+                                    if (destTile.gridPosition == new Vector2(0, 3)) //Satelite
+                                    {
+                                        mainObject.SetActive(false);
+                                        mainObject2.SetActive(false);
+                                        mainObject3.SetActive(false);
+                                        mainObject4.SetActive(false);
+                                        mainObject5.SetActive(false);
+                                        mainObject6.SetActive(false);
+                                        mainObject7.SetActive(false);
+                                        mainObject8.SetActive(true);
+                                        mainObject9.SetActive(false);
+                                        mainObject10.SetActive(false);
+                                    }
+                                    else
+                                    {
+                                        if (destTile.gridPosition == new Vector2(0, 2)) //Control room
+                                        {
+                                            mainObject.SetActive(false);
+                                            mainObject2.SetActive(false);
+                                            mainObject3.SetActive(false);
+                                            mainObject4.SetActive(false);
+                                            mainObject5.SetActive(false);
+                                            mainObject6.SetActive(false);
+                                            mainObject7.SetActive(false);
+                                            mainObject8.SetActive(false);
+                                            mainObject9.SetActive(true);
+                                            mainObject10.SetActive(false);
+                                        }
+                                        else
+                                        {
+                                            if (destTile.gridPosition == new Vector2(0, 1)) // Presentor
+                                            {
+                                                mainObject.SetActive(false);
+                                                mainObject2.SetActive(false);
+                                                mainObject3.SetActive(false);
+                                                mainObject4.SetActive(false);
+                                                mainObject5.SetActive(false);
+                                                mainObject6.SetActive(false);
+                                                mainObject7.SetActive(false);
+                                                mainObject8.SetActive(false);
+                                                mainObject9.SetActive(false);
+                                                mainObject10.SetActive(true);
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
