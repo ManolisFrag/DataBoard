@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour {
     public void moveCurrentPlayer (Tile destTile)
     {
         players[currentPlayerIndex].moveDestination = destTile.transform.position + 1.5f * Vector3.up;
-        //Debug.Log(destTile.gridPosition);
+        Debug.Log(destTile.gridPosition);
 
         if (destTile.gridPosition == new Vector2(1, 0)) //Building   THIS IS WHERE i CAN SHOW THE TEXT
         {
@@ -172,7 +172,7 @@ public class GameManager : MonoBehaviour {
                             }
                             else
                             {
-                                if (destTile.gridPosition == new Vector2(1, 0)) //Logo
+                                if (destTile.gridPosition == new Vector2(1, 4)) //Logo
                                 {
                                     mainObject.SetActive(false);
                                     mainObject2.SetActive(false);
@@ -230,6 +230,19 @@ public class GameManager : MonoBehaviour {
                                                 mainObject8.SetActive(false);
                                                 mainObject9.SetActive(false);
                                                 mainObject10.SetActive(true);
+                                            }
+                                            else
+                                            {
+                                                mainObject.SetActive(false);
+                                                mainObject2.SetActive(false);
+                                                mainObject3.SetActive(false);
+                                                mainObject4.SetActive(false);
+                                                mainObject5.SetActive(false);
+                                                mainObject6.SetActive(false);
+                                                mainObject7.SetActive(false);
+                                                mainObject8.SetActive(false);
+                                                mainObject9.SetActive(false);
+                                                mainObject10.SetActive(false);
                                             }
                                         }
                                     }
